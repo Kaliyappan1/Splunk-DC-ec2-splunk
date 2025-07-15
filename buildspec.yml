@@ -29,6 +29,7 @@ phases:
   post_build:
     commands:
       - echo "EC2 Splunk + Ansible Deployment Completed Successfully!"
+      - echo "Waiting for 250 seconds..." && sleep 250
       - chmod +x scripts/stop_instance.sh
       # Loop through all instance IDs and stop each
       - |

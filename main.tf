@@ -143,6 +143,13 @@ output "instance_public_ips" {
   }
 }
 
+output "instance_id" {
+  value = {
+    for idx, instance in aws_instance.splunk_cluster :
+    instance.tags["Name"] => instance.id
+  }
+}
+
 output "final_key_name" {
   value = local.final_key_name
 }
